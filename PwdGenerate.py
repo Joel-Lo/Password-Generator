@@ -8,11 +8,10 @@ def gspwd(length):
     lowerLetters = """abcdefghijklmnopqrstuvwxyz"""
     numbers = """0123456789"""
     symbols = """!@#$%^&*()-=_+{}[]:<~`>?;,"'.\\/"""
-    letters = upperLetters + lowerLetters
+
     while True:
-        first_char = random.choice(letters)
-        remaining_chars = random.choices(alphabet, k=length - 1)
-        word = first_char + "".join(remaining_chars)
+        combo = random.choices(alphabet, k=length)
+        word = "".join(combo)
         if len(set(word)) == 1:
             continue
         has_upper_letter = any(char in upperLetters for char in word)
